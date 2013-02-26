@@ -909,6 +909,7 @@ continue_after_breakpoint(struct process *proc, struct breakpoint *sbp)
 		continue_process(proc->pid);
 	} else {
 #if defined __sparc__  || defined __ia64___ || defined __metag__
+		disable_breakpoint(proc, sbp);
 		/* we don't want to singlestep here */
 		continue_process(proc->pid);
 #else
